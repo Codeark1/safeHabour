@@ -2,12 +2,19 @@ import React from 'react';
 import { Form, Input, Button, Select, Row, Col } from 'antd';
 import img from "../../Asset/img.png";
 import { useDispatch, useSelector } from 'react-redux';
-import { deposite, getLoan, payLoan, withdrawal } from '../Account/AccountSlice';
+
+
+import { deposite, withdrawal, getLoan, payLoan } from './AccountSlice'; // adjust the path if needed
+
+
+ 
+
 
 const { Option } = Select;
 
 const AccountOperations = () => {
   const { loan, balance } = useSelector(store => store.account);
+ 
   const dispatch = useDispatch();
 
   // Deposit function
@@ -23,6 +30,7 @@ const AccountOperations = () => {
   // Get loan function
   const onGetLoan = (values) => {
     dispatch(getLoan(Number(values.loan)));
+    console.log(values)
   };
 
   // Pay loan function
@@ -31,7 +39,7 @@ const AccountOperations = () => {
   };
 
   return (
-    <div className='grid grid-cols-2 h-screen bg-[#cbd6dc]'>
+    <div className='grid grid-cols-2 min-h-screen bg-[#cbd6dc]'>
       {/* Deposit Form */}
       <div className='flex justify-start items-start gap-5 flex-col p-8'>
         <Form

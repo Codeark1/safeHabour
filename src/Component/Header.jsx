@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+
 // Header component
 const Header = () => {
     // Get the loan from the Redux store
